@@ -6,6 +6,8 @@ minimal http handler composition
 npm install --save http-compose
 ```
 
+inspired by [`creationix/stack`](https://github.com/creationix/stack) and the middleware format in [`yoshuawuyts/merry`](https://github.com/yoshuawuyts/merry)
+
 ## example
 
 ```js
