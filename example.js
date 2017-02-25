@@ -1,4 +1,5 @@
 const http = require('http')
+const Send = require('http-sender')()
 
 const compose = require('./')
 
@@ -21,23 +22,6 @@ const requestHandler = compose([
   },
 ])
 
-const finalHandler = (req, res) => (err, value) => {
-  if (err) {
-    console.error(err.stack)
-    res.statusCode = 500
-    res.setHeader('Content-Type', 'text/plain')
-    res.end(err.stack + "\n")
-  } else if (value) {
-    res.statusCode = 200
-    res.setHeader('Content-Type', 'application/json')
-    res.end(JSON.stringify(value, null, 2) + "\n")
-  } else {
-    res.statusCode = 404
-    res.setHeader('Content-Type', 'text/plain')
-    res.end('Not Found\n')
-  }
-}
-
 http.createServer((req, res) => {
-  requestHandler(req, res, {}, finalHandler(req, res))
+  requestHandler(req, res, {}, Send(req, res))
 }).listen(5000)
