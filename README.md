@@ -57,6 +57,17 @@ composes an `Array` of handler functions into a single handler function.
 
 if any handler function passes either an `err` or `value` to `next()`, `compose` will skip any subsequent handlers and forward this to the final `next()` callback.
 
+## complementary modules
+
+- [`ahdinosaur/http-sender`](https://github.com/ahdinosaur/http-sender)
+- [`ahdinosaur/http-routes`](https://github.com/ahdinosaur/http-routes)
+
+## related modules
+
+- [`creationix/stack`](https://github.com/creationix/stack)
+- [`yoshuawuyts/nanostack`](https://github.com/yoshuawuyts/nanostack)
+
+
 ## license
 
 The Apache License
